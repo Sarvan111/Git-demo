@@ -30,10 +30,12 @@
    </div>
   </div>
 <script>
-const a= document.getElementById("header-title")
-a.style.borderBottom="solid 3px #000"
-const b=document.getElementById("title");
-b.style.color="green"
+const a= document.getElementsByClassName("list-group-item");
+a[2].style.backgroundColor="green";
+for(let i=0;i<a.length;i++)
+{
+a[i].style.fontWeight="bold"
+}
 </script>
 </body>
 </html>
