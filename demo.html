@@ -26,16 +26,14 @@
       <li class="list-group-item">Item 2</li>
       <li class="list-group-item">Item 3</li>
       <li class="list-group-item">Item 4</li>
+      <li class="last-item">Item 5</li>
     </ul>
    </div>
   </div>
 <script>
-const a= document.getElementsByClassName("list-group-item");
-a[2].style.backgroundColor="green";
-for(let i=0;i<a.length;i++)
-{
-a[i].style.fontWeight="bold"
-}
+ const a=document.getElementsByTagName("li")  
+ const b=document.getElementsByClassName("last-item")
+ console.log(a,b)
 </script>
 </body>
 </html>
