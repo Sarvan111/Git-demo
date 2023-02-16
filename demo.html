@@ -30,10 +30,13 @@
    </div>
   </div>
 <script>
- const a=document.querySelector(".list-group-item:nth-child(2)");
- a.style.backgroundColor="green";
- const b=document.querySelector(".list-group-item:nth-child(3)");
- b.style.display="none"
+ const odd=document.querySelectorAll("li:nth-child(odd)");
+ for(let i=0;i<odd.length;i++)
+ {
+  odd[i].style.backgroundColor="green";
+ }
+const second=document.querySelectorAll(".list-group-item");
+second[1].style.backgroundColor="green";
 </script>
 </body>
 </html>
