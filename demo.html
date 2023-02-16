@@ -26,15 +26,14 @@
       <li class="list-group-item">Item 2</li>
       <li class="list-group-item">Item 3</li>
       <li class="list-group-item">Item 4</li>
-      <li class="last-item">Item 5</li>
     </ul>
    </div>
   </div>
 <script>
- const a=document.getElementsByTagName("li")  
- const b=document.getElementsByClassName("last-item")
- a[4].style.backgroundColor="coral";
- b[0].style.fontWeight="bold";
+ const a=document.querySelector(".list-group-item:nth-child(2)");
+ a.style.backgroundColor="green";
+ const b=document.querySelector(".list-group-item:nth-child(3)");
+ b.style.display="none"
 </script>
 </body>
 </html>
