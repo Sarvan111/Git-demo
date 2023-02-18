@@ -30,13 +30,16 @@
    </div>
   </div>
 <script>
- const odd=document.querySelectorAll("li:nth-child(odd)");
- for(let i=0;i<odd.length;i++)
- {
-  odd[i].style.backgroundColor="green";
- }
-const second=document.querySelectorAll(".list-group-item");
-second[1].style.backgroundColor="green";
+ const container=document.querySelector(".container");
+const h1=document.querySelector("h1");
+const word=document.createElement("h1");
+word.innerText="Hello";
+container.insertBefore(word,h1)
+const li=document.createElement("p")
+li.innerText="Hello";
+const ul=document.querySelector(".list-group");
+const list=document.querySelectorAll(".list-group-item");
+ul.insertBefore(li,list[0]);
 </script>
 </body>
 </html>
