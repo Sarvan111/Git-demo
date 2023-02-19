@@ -34,3 +34,40 @@
       localStorage.setItem("time",f);
     }
   </script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Local Storage</title>
+  </head>
+  <body>
+  <form action="#" onsubmit="display(event)">
+    <h2> Book a call</h2>
+<h5>Book a call slot Our representative will call you within one hour of Selected time</h5>
+<hr width="100%" size="4px">
+  <label>Name</label><br> 
+  <input type="text" id="name" ><br>
+  <label>Email</label><br> 
+  <input type="email" id="mail" ><br>
+  <label>Phone</label><br> 
+  <input type="number" id="phone" ><br>
+  <label>Time for call</label><br> 
+  <input type="date" id="date" > <input type="time" id="time" ><br>
+  <input type="submit" id="call" value="Get a call" size="68">
+</form>
+<script>
+    function display(event)
+    {
+      event.preventDefault();
+      const a=document.getElementById("name").value;
+      const b=document.getElementById("mail").value;
+      const c=document.getElementById("phone").value;
+      const d=document.getElementById("date").value;
+      const f=document.getElementById("time").value;
+      let  obj={ Name:a, Email:b,Phone:c, Date:d, time:f}   
+      obj=JSON.stringify(obj);
+      localStorage.setItem("object",obj)
+     console.log(localStorage)
+    }
+  </script>
+</body>
+</html>
