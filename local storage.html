@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Local Storage</title>
+  </head>
+  <body>
+  <form action="#" onsubmit="display(event)">
+    <h2> Book a call</h2>
+<h5>Book a call slot Our representative will call you within one hour of Selected time</h5>
+<hr width="100%" size="4px">
+  <label>Name</label><br> 
+  <input type="text" name="name" ><br>
+  <label>Email</label><br> 
+  <input type="email" name="mail" ><br>
+  <label>Phone</label><br> 
+  <input type="number" name="phone" ><br>
+  <label>Time for call</label><br> 
+  <input type="date" name="date" > <input type="time" name="time" ><br>
+  <input type="submit" id="call" value="Get a call" size="68">
+</form>
+<ol id="scale"></ol>
+<script>
+    function display(event)
+    {
+      event.preventDefault();
+      const name=event.target.name.value;
+      const mail=event.target.mail.value;
+      const phone=event.target.phone.value;
+      const date=event.target.date.value;
+      const time=event.target.time.value;
+      const obj={name,mail,phone,date,time};
+      localStorage.setItem(name,JSON.stringify(obj));
+      userScreen(obj);
+    }
+      function userScreen(obj)
+      {
+        const list=document.getElementById("scale");
+        const li=document.createElement("li");
+        li.innerHTML=obj.name+" "+obj.mail+" "+obj.phone+" "+obj.date+" "+obj.time;
+        const del=document.createElement("input");
+        del.type="button";
+        del.value="delete";
+        del.onclick= () => {
+         localStorage.removeItem(name) 
+         list.removeChild(li)
+        }
+        li.appendChild(del)
+        list.appendChild(li);
+      }
+  </script>
+</body>
+</html>
