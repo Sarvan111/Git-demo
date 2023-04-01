@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sellers' admin  Page</title>
+  </head>
+  <body>
+  <form action="#" onsubmit="display(event)">
+  <label>Selling Price</label>
+  <input type="number" id="price" name="price" id="username">
+  <label>Product Name</label>
+  <input type="text" id="name" name="name"  id="mail">
+  <input type="submit"  value="Add Product" size="50">
+</form>
+<h1>Products</h1>
+<ul id="scale"></ul>
+<h3>Total Product Worth is:<span id="total" style="font-size:medium;"><span></h3>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
+<script>
+    var total=0;
+    window.addEventListener("DOMContentLoaded",()=>{
+       axios.get("https://crudcrud.com/api/e5ebaf3db06640fc9387c8eaa6074d46/mydata") 
+       .then(res=>{
+          for(let i=0;i<res.data.length;i++)
+          {
+           let a=res.data[i].price;
+           let b=parseInt(a);
+           total+=b; 
+          console.log(total);
+          showNewUserOnScreen(res.data[i]);
+          }
+       })
+       .catch(err=>console.log(err));
+    });
+    function display(event)
+    {
+      event.preventDefault();
+      const price=event.target.price.value;
+      const name=event.target.name.value;
+      const obj={price,name};
+      axios.post("https://crudcrud.com/api/e5ebaf3db06640fc9387c8eaa6074d46/mydata",obj)
+      .then(res=>{
+                 showNewUserOnScreen(res.data)
+                 console.log(res.data)})
+      .catch(err=>console.log(err));
+    }
+      function showNewUserOnScreen(obj)
+      {
+        const list=document.getElementById("scale");
+        const li=document.createElement("li");
+        li.innerHTML=obj.price+" "+obj.name+"   ";
+        document.getElementById("total").innerHTML=` Rs ${total}`
+        const del=document.createElement("input");
+        del.type="button";
+        del.value="Delete Product";
+        del.onclick=()=>{
+        total-parseInt(obj.price);
+        document.getElementById("price").value="";
+        document.getElementById("name").value="";
+        list.removeChild(li);     
+        axios.delete(`https://crudcrud.com/api/e5ebaf3db06640fc9387c8eaa6074d46/mydata/${obj._id}`)
+       .then(res=>console.log(res.data))
+       .catch(err=>console.log(err));
+        }  
+        li.appendChild(del)
+        list.appendChild(li);
+    }
+  </script>
+</body>
+</html>
