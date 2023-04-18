@@ -1,0 +1,31 @@
+const posts=[];
+function updateLastUserActivityTime()
+{
+    return new Promise((res,rej)=>{
+    setTimeout(()=>{
+      var lastActivity=new Date().toLocaleTimeString();
+      res(lastActivity);
+    },1000);
+   })
+}
+ function cretePost()
+{
+ return new Promise((res,rej)=>
+ {   let post="Post 1";
+     posts.push(post);
+      res(post);
+ })
+}
+ function deletePost()
+{
+ return new Promise((res,rej)=>{
+      res(posts.pop());
+ })
+}
+Promise.all([cretePost(),updateLastUserActivityTime(),deletePost()])
+.then(([createRes,updateRes,deleteRes])=>{
+  console.log(createRes);
+  console.log(`User's last activity ${updateRes}`);
+  console.log(`${deleteRes} deleted`);
+})
+.catch(err=>consolee.log(err));
