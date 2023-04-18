@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Expense Tracker</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+  <body>
+    <div>
+  <form action="#" onsubmit="display(event)">
+   <label>Expense amount</label>
+   <input type="number" autofocus name="amount" id="amount">
+   <label>Choose description</label>
+   <select name="description">
+        <option>Petrol</option>
+        <option>Ticket</option>
+    </select>
+  <label>Choose a category</label>
+  <select name="Category">
+         <option>Travel</option>
+         <option>Movie</option>
+         <option>Cricket</option>
+  </select>
+ <button>Add Expense</button>
+</form>
+</div>
+<ol id="scale"></ol>
+<script>
+    function display(event)
+    {
+      event.preventDefault();
+      const amount=event.target.amount.value;
+      const description=event.target.description.value;
+      const Category=event.target.Category.value;
+      const obj={amount,description,Category};
+      localStorage.setItem(obj.amount,JSON.stringify(obj));
+      userScreen(obj);
+    }
+      function userScreen(obj)
+      {
+        const list=document.getElementById("scale");
+        const li=document.createElement("li");
+        li.innerHTML=obj.amount+" "+obj.description+" "+obj.Category;
+        const del=document.createElement("input");
+        del.type="button";
+        del.value="Delete Expense";
+        del.onclick=()=>{
+         localStorage.removeItem(obj.amount) ;
+         list.removeChild(li);
+        }
+        const edit=document.createElement("input");
+        edit.type="button";
+        edit.value="Edit Expense";
+        edit.onclick= () => {
+        localStorage.removeItem(obj.amount);
+        list.removeChild(li);
+        document.getElementById("amount").value=obj.amount;
+        document.getElementById("description").value=obj.description;
+        document.getElementById("Category").value=obj.Category;
+        }
+        li.appendChild(del)
+        li.appendChild(edit);
+        list.appendChild(li);
+      }
+  </script>
+</body>
+</html>
