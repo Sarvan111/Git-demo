@@ -1,0 +1,11 @@
+{
+  "name": "node-js-app",
+  "version": "1.0.0",
+  "description": "chatApp",
+  "main": "ChatApp.js",
+  "scripts": {
+    "start": "node ChatApp.js"
+  },
+  "author": "Sarvan",
+  "license": "ISC"
+}
