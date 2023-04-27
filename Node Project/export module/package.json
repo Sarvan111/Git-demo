@@ -4,8 +4,11 @@
   "description": "chatApp",
   "main": "ChatApp.js",
   "scripts": {
-    "start": "node ChatApp.js"
+    "start": "nodemon ChatApp.js"
   },
   "author": "Sarvan",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
 }
