@@ -8,7 +8,7 @@
   },
   "author": "Sarvan",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "nodemon": "^2.0.22"
   }
 }
