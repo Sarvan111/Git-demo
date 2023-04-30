@@ -1,0 +1,15 @@
+{
+  "name": "node-js-app",
+  "version": "1.0.0",
+  "description": "chatApp",
+  "main": "ChatApp.js",
+  "scripts": {
+    "start": "nodemon ChatApp.js"
+  },
+  "author": "Sarvan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
+  }
+}
