@@ -4,7 +4,7 @@
   "description": "chatApp",
   "main": "ChatApp.js",
   "scripts": {
-    "start": "nodemon ChatApp.js"
+    "start": "nodemon groupChatApp.js"
   },
   "author": "Sarvan",
   "license": "ISC",
